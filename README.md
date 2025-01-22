@@ -1,5 +1,37 @@
 # Feature-Extraction-and-Transformation-Techniques-using-Spark
 
+## Spark Session Start
+- The Spark session is created with the following code:
+
+```python
+
+# Import FindSpark to initialize PySpark
+import findspark
+findspark.init()
+
+# Import necessary PySpark modules
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import rand
+
+# Create SparkSession
+spark = SparkSession.builder.appName("Feature Extraction and Transformation using Spark").getOrCreate()
+
+```
+
+## Warnings Suppression
+- Warnings are suppressed with this code:
+
+```python
+# Suppress warnings
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+warnings.filterwarnings('ignore')
+```
+Minimize unnecessary warnings during execution.
+
+
 ## Task 1 - Tokenizer 🧩
 - A Tokenizer is used to split a sentence into words. This is a fundamental step in natural language processing (NLP) to break down sentences into their components.
 
@@ -162,3 +194,12 @@ scaledData.show(truncate=False)
 ```
 Output:
 Scaled numerical features with standardized values.
+
+## Spark Session Stop
+- The Spark session is closed at the end with:
+
+```python
+# Stop the Spark session
+spark.stop()
+```
+This ensures the session is properly terminated after all tasks are complete.
